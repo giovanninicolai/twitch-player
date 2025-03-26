@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Twitch</title>
+</head>
+<body>
+    <iframe id="twitch-player"
+        src=""
+        height="100%"
+        width="100%"
+        allowfullscreen>
+    </iframe>
+
+    <script>
+        // Ottieni il parametro "channel" dall'URL
+        const params = new URLSearchParams(window.location.search);
+        const channel = params.get("channel") || "defaultcanale"; // Sostituisci "defaultcanale" con un valore di default
+        
+        // Imposta il player
+        document.getElementById("twitch-player").src =
+            `https://player.twitch.tv/?channel=${channel}&parent=tuo-username.github.io`;
+    </script>
+</body>
+</html>
