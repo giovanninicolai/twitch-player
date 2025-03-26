@@ -8,19 +8,21 @@
 <body>
     <iframe id="twitch-player"
         src=""
-        height="100%"
-        width="100%"
         allowfullscreen>
     </iframe>
 
     <script>
-        // Ottieni il parametro "channel" dall'URL
+        // Ottieni i parametri dall'URL
         const params = new URLSearchParams(window.location.search);
-        const channel = params.get("channel") || "defaultcanale"; // Sostituisci "defaultcanale" con un valore di default
+        const channel = params.get("channel") || "enkk"; // Imposta un valore di default per il canale
+        const width = params.get("width") || "100%"; // Imposta un valore di default per la larghezza
+        const height = params.get("height") || "100%"; // Imposta un valore di default per l'altezza
         
-        // Imposta il player
-        document.getElementById("twitch-player").src =
-            `https://player.twitch.tv/?channel=${channel}&parent=giovanninicolai.github.io`;
+        // Imposta i parametri nell'iframe
+        const iframe = document.getElementById("twitch-player");
+        iframe.src = `https://player.twitch.tv/?channel=${channel}&parent=giovanninicolai.github.io`;
+        iframe.width = width;  // Imposta la larghezza
+        iframe.height = height;  // Imposta l'altezza
     </script>
 </body>
 </html>
